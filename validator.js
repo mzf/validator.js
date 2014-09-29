@@ -454,10 +454,10 @@
     }
 
     function domain(options) {
-      var sep = '-?-?' + (options.allow_underscores ? '_?' : '')
+      var sep = '-*' + (options.allow_underscores ? '_?' : '')
         , alpha = 'a-z\\u00a1-\\uffff'
         , alphanum = alpha + '0-9'
-        , subdomain = '(?:(?:[' + alphanum + ']+' + sep + ')*[' + alphanum + ']+)'
+        , subdomain = '(?:(?:[' + alphanum + ']' + sep + ')*[' + alphanum + ']+)'
         , tld = '(?:\\.(?:[' + alpha + ']{2,}))' + (options.require_tld ? '' : '?');
       return '(?:' + subdomain + '(?:\\.' + subdomain + ')*' + tld + ')';
     }
